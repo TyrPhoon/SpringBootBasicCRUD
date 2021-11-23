@@ -8,7 +8,7 @@ import java.util.List;
 
 @Repository
 public interface DepartmentRepository extends JpaRepository<Department,String> {
-    List<Department> findAllById();
+   /* List<Department> findAllById();
     void removeById(String id);
-    void edit(Department d);
+    void edit(Department d);*/
 }

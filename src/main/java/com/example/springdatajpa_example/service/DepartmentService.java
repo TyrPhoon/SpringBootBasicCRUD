@@ -12,12 +12,11 @@ import java.util.List;
 public class DepartmentService {
     @Autowired
     DepartmentRepository repository;
-
     public List<Department> GetALlDepartment(){
         return repository.findAll();
     }
     public void EditDepartment(Department d){
-        repository.edit(d);
+        repository.save(d);
     }
 
 }

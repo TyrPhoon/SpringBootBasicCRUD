@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="login/layout.html"></head>
+<body>
+    <div class="login">
+        <h1>Login</h1>
+        <form>
+            <p>Username</p>
+            <input type="text" name="username" placeholder="Username">
+            <p>Password</p>
+            <input type="password" name="password" placeholder="Password">
+            <input type="submit" name="login" value="Login">
+            <input type="reset" name="reset" value="Reset">
+        </form>
+    </div>
+</body>
+</html>

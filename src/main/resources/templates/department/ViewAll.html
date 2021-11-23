@@ -1,10 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="department/layout.html"></head>
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>List Department</title>
 </head>
 <body>
+<div class="view">
+    <h2 id="tittle"> Spring MVC 5 + Spting Data JPA + Thymeleaf + MySQL - Employees and Department Manager</h2>
+<div class="departments">
+    <a id="add" href="/create-department">Create new department</a>
+    <div class="tabless">
+        <h3>Departments</h3>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+            <th:block th:each="department : ${departments}">
+                <tr>
+                    <td th:text="${department.name}"></td>
+                    <td th:text="${department.description}"></td>
+                    <td><a th:href="@{/edit-department/__${department.id}__}">Edit</a></td>
+                    <td><a th:href="@{/delete-department/__${department.id}__}">Delete</a></td>
+                </tr>
+            </th:block>
+        </table>
+    </div>
 
+</div>
+</div>
 </body>
 </html>

@@ -4,11 +4,14 @@
 <body>
     <div class="login">
         <h1>Login</h1>
-        <form>
+        <th:block th:if="${message}">
+            <p th:text="${message}"></p>
+        </th:block>
+        <form th:action="@{login}" th:method="post" th:object="${user}">
             <p>Username</p>
-            <input type="text" name="username" placeholder="Username">
+            <input type="text" th:field="*{username}" placeholder="Username">
             <p>Password</p>
-            <input type="password" name="password" placeholder="Password">
+            <input type="password" th:field="*{password}" placeholder="Password">
             <input type="submit" name="login" value="Login">
             <input type="reset" name="reset" value="Reset">
         </form>

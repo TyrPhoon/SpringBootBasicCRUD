@@ -13,7 +13,5 @@ public interface EmployeeRepository extends JpaRepository<Employee,String> {
     List<Employee> findAllByIDPB(String IDPB);
     List<Employee> findAllByAddressLike(String address);
     Employee findByIdIs(String IDNV);
-    void AddNV(Employee e);
-    void UpdateNV(Employee e);
-    void RemoveNV(Employee e);
+    void delete(Employee e);
 }

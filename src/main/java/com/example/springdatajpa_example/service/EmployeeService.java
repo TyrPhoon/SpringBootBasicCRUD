@@ -2,9 +2,11 @@ package com.example.springdatajpa_example.service;
 
 import com.example.springdatajpa_example.entity.Employee;
 import com.example.springdatajpa_example.repository.EmployeeRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class EmployeeService {
     EmployeeRepository repository;
     public List<Employee> SearchEmployeebyIDNV(String IDNV){
@@ -22,6 +24,7 @@ public class EmployeeService {
     public Employee GetEmployeeByIDNV(String IDNV){
         return repository.findByIdIs(IDNV);
     }
+    public List<Employee> GetAll(){return repository.findAll();};
     public void DeleteEmployee(Employee e){
         repository.delete(e);
     }

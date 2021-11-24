@@ -1,22 +1,38 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="employee/layout.html"></head>
 <head>
     <meta charset="UTF-8">
-    <title>List Customer</title>
+    <title>List Department</title>
 </head>
 <body>
-    <h2>Employees</h2>
-    <table id="employees">
-        <tr>
-            <th>Name</th>
-            <th>IDPB</th>
-            <th>Address</th>
-            <th>Edit</th>
-            <th>Delete</th>
-        </tr>
-        <th:block th:each="">
+<div class="view">
+    <h2 id="tittle"> Spring MVC 5 + Spting Data JPA + Thymeleaf + MySQL - Employees and Department Manager</h2>
+    <div class="employees">
+        <a id="add" href="/create-employee">Create new employee</a>
+        <div class="tabless">
+            <h3>Employees</h3>
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>IDDP</th>
+                    <th>Address</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                <th:block th:each="employee : ${employees}">
+                    <tr>
+                        <td th:text="${employee.name}"></td>
+                        <td th:text="${employee.IDPB}"></td>
+                        <td th:text="${employee.address}"></td>
+                        <td><a th:href="@{/edit-employee/__${employee.id}__}">Edit</a></td>
+                        <td><a th:href="@{/delete-employee/__${employee.id}__}">Delete</a></td>
+                    </tr>
+                </th:block>
+            </table>
+        </div>
 
-        </th:block>
-    </table>
+    </div>
+</div>
 </body>
 </html>

@@ -3,21 +3,18 @@
 <head th:replace="department/layout.html"></head>
 <head>
     <meta charset="UTF-8">
-    <title>Edit Department</title>
+    <title>Delete Department</title>
 </head>
 <body>
 <div class="crtd">
-    <h1>Edit Department</h1>
+    <h1>Delete Department</h1>
     <a id="back" href="/alldp">Department List</a>
 </div>
 <div class="createdp">
     <h2 id="tittle"> Spring MVC 5 + Spting Data JPA + Thymeleaf + MySQL - Employees and Department Manager</h2>
     <div class="tablecrteate">
         <h3>Departments</h3>
-        <th:block th:if="${message}">
-            <p style="color: red;text-align: center" th:text="${message}"></p>
-        </th:block>
-        <form th:action="@{/edit-department}" th:method="post" th:object="${department}">
+        <form th:action="@{/delete-department}" th:method="post" th:object="${department}">
             <table>
                 <tr>
                     <td>ID</td>
@@ -33,7 +30,7 @@
                 </tr>
                 <tr>
                     <td></td>
-                    <td><input type="submit" value="Edit Department!"></td>
+                    <td><input type="submit" value="Delete Department!"></td>
                 </tr>
             </table>
         </form>

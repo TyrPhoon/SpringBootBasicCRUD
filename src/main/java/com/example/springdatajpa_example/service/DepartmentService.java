@@ -15,8 +15,15 @@ public class DepartmentService {
     public List<Department> GetALlDepartment(){
         return repository.findAll();
     }
+    public Department GetByID(String IDPB)
+    {
+        return repository.getById(IDPB);
+    }
     public void EditDepartment(Department d){
         repository.save(d);
     }
-
+    public void AddDepartment(Department d){
+        repository.save(d);
+    }
+    public void RemoveDepartment(Department d){repository.delete(d);}
 }

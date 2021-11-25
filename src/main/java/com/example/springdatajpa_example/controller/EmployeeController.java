@@ -18,7 +18,7 @@ public class EmployeeController {
     @Autowired
     EmployeeService service;
     @GetMapping("/allem")
-    public String ViewAllDP(Model model){
+    public String ViewAllEM(Model model){
         List<Employee> employees = service.GetAll();
         model.addAttribute("employees",employees);
         return "/employee/ViewAll";
@@ -29,34 +29,34 @@ public class EmployeeController {
         return "employee/FormCreate";
     }
     @PostMapping("/create-employee")
-    public String AddDP(@ModelAttribute Employee employee, Model model){
+    public String AddEM(@ModelAttribute Employee employee, Model model){
         service.SaveEmployee(employee);
         model.addAttribute("employees", new Employee());
         model.addAttribute("message","Created successfully");
         return "employee/FormCreate";
     }
-    @GetMapping("/edit-department/{id}")
+    @GetMapping("/edit-employee/{id}")
     public String Showformedit(@PathVariable String id, Model  model){
         Employee e = service.GetEmployeeByIDNV(id);
         model.addAttribute("employees", e);
         return "employee/FormEdit";
     }
     @PostMapping("/edit-employee")
-    public String EditDP(@ModelAttribute Employee employee,Model model){
+    public String EditEM(@ModelAttribute Employee employee,Model model){
         service.SaveEmployee(employee);
         Employee e = service.GetEmployeeByIDNV(employee.getId());
         model.addAttribute("employees", e);
         model.addAttribute("message","Edited successfully");
         return "employee/FormEdit";
     }
-    @GetMapping("/delete-department/{id}")
+    @GetMapping("/delete-employee/{id}")
     public String Showformdelete(@PathVariable String id,Model  model){
         Employee employee = service.GetEmployeeByIDNV(id);
         model.addAttribute("employees", employee);
         return "employee/FormDelete";
     }
-    @PostMapping("/delete-department")
-    public String DeleteDP(@ModelAttribute Employee employee,Model model){
+    @PostMapping("/delete-employee")
+    public String DeleteEM(@ModelAttribute Employee employee,Model model){
         service.DeleteEmployee(employee);
         return "redirect:/allem";
     }

@@ -18,6 +18,9 @@ public class Employee {
     @Column(name = "IDPB")
     private String IDPB;
 
+    @Column(name = "DiaChi")
+    private String address;
+
     public Employee(String id, String name, String IDPB, String address) {
         this.id = id;
         this.name = name;
@@ -63,8 +66,6 @@ public class Employee {
         this.address = address;
     }
 
-    @Column(name = "DiaChi")
-    private String address;
 
     public String getId() {
         return id;

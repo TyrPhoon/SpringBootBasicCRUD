@@ -3,12 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style type="text/css">
+        h1{
+            text-align: center;
+            display: block;
+            color: antiquewhite;
+            background-color: mediumblue;
+        }
+        .menu{
+            margin-left: 50px;
+            display: block;
+        }
+        #menu-collection{
+            border: 1px solid;
+            margin-top: 20px;
+            list-style-type: none;
+            width: 200px;
+            display: inline-table;
+            float: left;
+            border-collapse: collapse;
+            /*height: auto;*/
+            text-align: center;
+        }
+        #menu-collection a{
+            padding: 10px 10px;
+            border: 1px solid;
+            display: block;
+            text-decoration: none;
+            background-color: #fbff80;
+        }
+        #menu-collection a:hover{
+            background-color: mediumblue;
+            color: #fbff80;
+        }
+    </style>
 </head>
 <body>
-<h2> Mô hình MVC quản lý nhân viên phòng ban đơn giản!!</h2>
-<ol>
-    <li><a th:href="@{/alldp}">Departments</a></li>
-    <li><a th:href="@{/allem}">Employees</a></li>
-</ol>
+<h1> Mô hình MVC quản lý nhân viên phòng ban đơn giản!!</h1>
+<div class="menu">
+    <ul id="menu-collection">
+        <li><a th:href="@{/alldp}" target="detail">Departments</a></li>
+        <li><a th:href="@{/allem}" target="detail">Employees</a></li>
+    </ul>
+    <ul style="list-style-type: none; float:right">
+        <li>
+            <iframe id=#detail name="detail" scrolling="no" style="display: block; border: none; width: 1300px; height: 900px"></iframe>
+        </li>
+    </ul>
+</div>
 </body>
 </html>

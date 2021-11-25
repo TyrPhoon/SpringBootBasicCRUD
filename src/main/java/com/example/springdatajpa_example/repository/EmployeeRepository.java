@@ -2,6 +2,7 @@ package com.example.springdatajpa_example.repository;
 
 import com.example.springdatajpa_example.entity.Employee;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -14,4 +15,6 @@ public interface EmployeeRepository extends JpaRepository<Employee,String> {
     List<Employee> findAllByAddressLike(String address);
     Employee findByIdIs(String IDNV);
     void delete(Employee e);
+    @Query("select e from Employee e")
+    List<Employee> GetALL();
 }
